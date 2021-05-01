@@ -1,0 +1,39 @@
+vs code extension:
+1.bracket pair colorizer
+2.bookmark
+3.npm intellisense
+4.node intellisense
+5.path intellisense
+6. prettier
+7. vetur
+8. vue 3 snippet
+9. vue vscode snippet
+10. vue nevigator
+11. vue-helper
+
+
+
+vs code shortscut for vue js
+=>  vbase,vstore,vrouter
+=>  vdata,vrouter-name(template for router),vgetter,vsetter,
+=>  vka	<keep-alive></keep-alive>
+=>  vtransition	<transition></transition>
+=>  vtg	<transition-group></transition-group>
+=>  vrl	<router-link></router-link>
+=>  vrlt	<router-link to=''></router-link>
+=>  vrv	<router-view></router-view> 
+=>  vOnce	v-once
+=>  key	:key
+=>  ref	ref
+
+
+    
+3.
+auto save format vscode
+default format set with prettie
+
+4. cannot read property of fullName of undefine   
+using compoutd propety in tempter with this {{ this.fullName }} insetead of {{ fullName }} .
+
+
+5. rgba (red,0,0,0.5) instad of rgba(0,0,0,0.5) means inside of rgba we can not use red,green color . we must have to use digit . other wise it will not get error but if we look in inspect element than it shown that it not accept this property
