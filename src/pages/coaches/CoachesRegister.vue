@@ -1,11 +1,28 @@
 <template>
   <div>
-    <h1>Register</h1>
+    <base-card>
+      <h1>Register as a coach now!</h1>
+      <coatch-form @save-data="saveData"></coatch-form>
+    </base-card>
   </div>
 </template>
 
 <script>
-export default {};
+import CoatchForm from '@/components/coaches/CoatchForm';
+export default {
+  components: {
+    CoatchForm
+  },
+
+  methods: {
+    saveData(data) {
+      console.log(data);
+      this.$store.dispatch('coaches/registerCoach', data);
+      // this.$router.push('/coaches');
+      this.$router.replace('/coaches');
+    }
+  }
+};
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

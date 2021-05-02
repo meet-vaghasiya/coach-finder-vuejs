@@ -1,6 +1,8 @@
 .DS_Store
 node_modules
 /dist
+/HOW-TO-USE.pdf
+.prettierrc
 
 # local env files
 .env.local

@@ -8,7 +8,9 @@
         <!-- <button>Refresh</button>
         <router-link to="/register">Register as Coach</router-link> -->
         <base-button mode="outline">Refresh</base-button>
-        <base-button link to="/register">Register as coach</base-button>
+        <base-button link to="/register" v-if="!isCoach"
+          >Register as coach</base-button
+        >
       </div>
 
       <ul v-if="hasCoaches">
@@ -69,6 +71,9 @@ export default {
     },
     hasCoaches() {
       return this.$store.getters['coaches/hasCoaches'];
+    },
+    isCoach() {
+      return this.$store.getters['coaches/isCoach'];
     }
   },
   methods: {
