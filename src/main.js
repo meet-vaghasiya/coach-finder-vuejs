@@ -7,12 +7,13 @@ import store from './store/index.js';
 import BaseBedge from '@/components/ui/BaseBedge';
 import BaseButton from '@/components/ui/BaseButton';
 import BaseCard from '@/components/ui/BaseCard';
-
+import BaseSpinner from '@/components/ui/BaseSpinner';
 const app = createApp(App);
 //use component
 app.component('base-bedge', BaseBedge);
 app.component('base-button', BaseButton);
 app.component('base-card', BaseCard);
+app.component('base-spinner', BaseSpinner);
 
 app.use(router);
 app.use(store);
