@@ -40,3 +40,5 @@ using compoutd propety in tempter with this {{ this.fullName }} insetead of {{ f
 
 
 6.  isCoach(_, getters, _, rootGetters)  is not define and give appropiate  
+
+7. in vuex store include all file of getters,setters and mutations in index.js file otherwise we will get error 
