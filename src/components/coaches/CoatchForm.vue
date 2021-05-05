@@ -158,7 +158,6 @@ export default {
         areas: this.areas.val,
         formIsValid: true
       };
-
       this.$emit('save-data', formData);
     }
   }

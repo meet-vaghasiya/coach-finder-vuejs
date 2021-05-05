@@ -8,9 +8,9 @@ export default {
       hourlyRate: data.rate,
       areas: data.areas
     };
-
+    // console.log(coachData);
     const response = await fetch(
-      `https://stalwart-veld-303412-default-rtdb.firebaseio.com/coaches/${userId}}.json`,
+      `https://stalwart-veld-303412-default-rtdb.firebaseio.com/coaches/${userId}.json`,
       {
         method: 'PUT', // put request overwritten data if there already existed in database
         body: JSON.stringify(coachData)
