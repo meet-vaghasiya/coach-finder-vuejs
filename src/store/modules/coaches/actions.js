@@ -28,7 +28,11 @@ export default {
       id: userId
     });
   },
-  async loadCoaches(context) {
+  async loadCoaches(context, payload) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
+
     const response = await fetch(
       `https://stalwart-veld-303412-default-rtdb.firebaseio.com/coaches.json`
     );
@@ -51,5 +55,6 @@ export default {
       coaches.push(coach);
     }
     context.commit('setCoaches', coaches);
+    context.commit('setFetchTimeStamp'); // here we are using more than two mutation in ine action
   }
 };
