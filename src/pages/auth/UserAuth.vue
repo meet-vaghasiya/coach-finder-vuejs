@@ -1,5 +1,12 @@
 <template>
   <div>
+    <base-dialog :show="!!error" title="An erorr occured" @close="handleError">
+      <p>{{ error }}</p>
+    </base-dialog>
+    <base-dialog :show="isLoading" title="Authenticating" fixed>
+      <base-spinner></base-spinner>
+    </base-dialog>
+
     <base-card>
       <form action="" @submit.prevent="submitForm">
         <div class="form-control">
@@ -31,10 +38,13 @@
 export default {
   data() {
     return {
-      email: '',
+      BaseSpinneremail: '',
       password: '',
       formIsValid: true,
-      mode: 'login'
+      mode: 'login',
+      isLoading: false,
+      error: '',
+      email: ''
     };
   },
   methods: {
@@ -46,7 +56,7 @@ export default {
       }
     },
 
-    submitForm() {
+    async submitForm() {
       this.formIsValid = true;
       if (
         this.email === '' ||
@@ -56,15 +66,34 @@ export default {
         this.formIsValid = false;
         return;
       }
+      this.isLoading = true;
 
-      if (this.mode == 'login') {
-        console.log('hello world');
-      } else {
-        this.$store.dispatch('signup', {
-          email: this.email,
-          password: this.password
-        });
+      // const actionPayload = {
+      //   email: this.email,
+      //   password: this.password
+      // };
+      // you can use payload  to dispatch loagin and signup method to remove duplication of code
+
+      try {
+        if (this.mode == 'login') {
+          console.log('hello world');
+          await this.$store.dispatch('login', {
+            email: this.email,
+            password: this.password
+          });
+        } else {
+          await this.$store.dispatch('signup', {
+            email: this.email,
+            password: this.password
+          });
+        }
+      } catch (error) {
+        this.error = error || 'Failed to auth,try later';
       }
+      this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
     }
   },
 
