@@ -8,6 +8,8 @@ import NotFound from '@/pages/NotFound';
 import ContactCoaches from '@/pages/requests/ContactCoaches';
 import RequestReceived from '@/pages/requests/RequestReceived';
 import UserAuth from '@/pages/auth/UserAuth';
+import store from './store/index'
+
 
 // Vue.use(VueRouter);
 const router = createRouter({
@@ -26,10 +28,21 @@ const router = createRouter({
         }
       ]
     },
-    { path: '/register', component: CoachesRegister },
-    { path: '/requests', component: RequestReceived },
-    { path: '/auth', component: UserAuth },
+    { path: '/register', component: CoachesRegister, meta:{requiresAuth:true} },
+    { path: '/requests', component: RequestReceived ,meta:{requiresAuth:true}},
+    { path: '/auth', component: UserAuth,meta:{requiresUnAuth:true} },
     { path: '/:notFound(.*)', component: NotFound }
   ]
 });
+router.beforeEach(function(to, from, next)  {
+  if (to.meta.requiresAuth && !store.getters.isAuthenticated) {
+    next('/auth')
+  } else if(to.meta.requiresUnAuth && store.getters.isAuthenticated){
+    next('/coaches')
+  } else {
+    next()
+  }
+
+})
+
 export default router;
