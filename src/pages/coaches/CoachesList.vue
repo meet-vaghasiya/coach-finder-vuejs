@@ -12,7 +12,8 @@
           <!-- <button>Refresh</button>
         <router-link to="/register">Register as Coach</router-link> -->
           <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
-          <base-button link to="/register" v-if="!isCoach && !isLoading"
+          <base-button  link to="/auth" v-if="!isLoggedIn">Login</base-button>
+          <base-button link to="/register" v-if="isLoggedIn && !isCoach && !isLoading"
             >Register as coach</base-button
           >
         </div>
@@ -60,6 +61,9 @@ export default {
     };
   },
   computed: {
+    isLoggedIn(){
+return this.$store.getters.isAuthenticated;
+    },
     filteredCoaches() {
       // return this.$store.getters['coaches/coaches']; // its name space which is define in main index.js. first coaches is namespace name and second is getters name
 

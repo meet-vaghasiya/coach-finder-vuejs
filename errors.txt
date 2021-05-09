@@ -9,3 +9,19 @@
     You've installed the Vuex version 3.x by running npm install --save vuex you should uninstall it npm uninstall --save vuex then install the version 4 which is compatible with vue 3 by running the following command :
 
   npm install --save vuex@next
+
+  
+4. cannot read property of fullName of undefine   
+using compoutd propety in tempter with this {{ this.fullName }} insetead of {{ fullName }} .
+
+
+5. rgba (red,0,0,0.5) instad of rgba(0,0,0,0.5) means inside of rgba we can not use red,green color . we must have to use digit . other wise it will not get error but if we look in inspect element than it shown that it not accept this property
+
+
+6.  isCoach(_, getters, _, rootGetters)  is not define and give appropiate  
+
+7. in vuex store include all file of getters,setters and mutations in index.js file otherwise we will get error 
+
+8. when you pass payload in firebase than         "  returnSecureToken: true" otherwise this will not return expire time and return unauthorize error in response even we pass token because token have expire time of now() which is expire during time of genration. we can also see token value by decoding json in decoder.
+
+ 

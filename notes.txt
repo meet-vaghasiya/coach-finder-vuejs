@@ -31,14 +31,3 @@ vs code shortscut for vue js
 3.
 auto save format vscode
 default format set with prettie
-
-4. cannot read property of fullName of undefine   
-using compoutd propety in tempter with this {{ this.fullName }} insetead of {{ fullName }} .
-
-
-5. rgba (red,0,0,0.5) instad of rgba(0,0,0,0.5) means inside of rgba we can not use red,green color . we must have to use digit . other wise it will not get error but if we look in inspect element than it shown that it not accept this property
-
-
-6.  isCoach(_, getters, _, rootGetters)  is not define and give appropiate  
-
-7. in vuex store include all file of getters,setters and mutations in index.js file otherwise we will get error 

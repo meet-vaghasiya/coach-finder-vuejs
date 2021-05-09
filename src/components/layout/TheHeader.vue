@@ -8,8 +8,11 @@
         <li>
           <router-link to="/coaches">All Coaches</router-link>
         </li>
-        <li>
+        <li v-if="isLoggedIn">
           <router-link to="/requests"> Request</router-link>
+        </li>
+        <li v-else>
+          <router-link to="/auth">LogIn</router-link>
         </li>
       </ul>
     </nav>
@@ -17,7 +20,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+     isLoggedIn(){
+    // alert(this.$store.getters.isAuthenticated)
+    // console.log(this.$store.getters.isAuthenticated,'from login sigb')
+    return this.$store.getters.isAuthenticated
+  }
+  },
+ 
+};
 </script>
 
 <style scoped>

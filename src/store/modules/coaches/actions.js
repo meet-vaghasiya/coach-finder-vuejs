@@ -9,8 +9,9 @@ export default {
       areas: data.areas
     };
     // console.log(coachData);
+    const token = context.rootGetters.token
     const response = await fetch(
-      `https://stalwart-veld-303412-default-rtdb.firebaseio.com/coaches/${userId}.json`,
+      `https://stalwart-veld-303412-default-rtdb.firebaseio.com/coaches/${userId}.json?auth=`+token,
       {
         method: 'PUT', // put request overwritten data if there already existed in database
         body: JSON.stringify(coachData)

@@ -8,8 +8,8 @@ export default {
         method: 'POST',
         body: JSON.stringify({
           email: payload.email,
-          password: payload.password
-          // returnSecureToken: true
+          password: payload.password,
+          returnSecureToken: true
         })
       }
     );
@@ -19,7 +19,7 @@ export default {
       const error = new Error(responseData.message || 'Failed to auth');
       throw error;
     }
-    console.log(responseData);
+
     context.commit('setUser', {
       token: responseData.idToken,
       userId: responseData.localId,
