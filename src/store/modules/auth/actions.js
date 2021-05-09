@@ -50,5 +50,14 @@ export default {
       userId: responseData.localId,
       tokenExpirition: responseData.expiresIn
     });
+  },
+  logout(context) {
+    context.commit('setUser', {
+      token: null,
+      userId: null,
+      tokenExpirition:null
+}) // we already set User in mutaion we need to change value to null instead of userId, token original value
+
+
   }
 };

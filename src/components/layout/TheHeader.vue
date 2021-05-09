@@ -14,6 +14,9 @@
         <li v-else>
           <router-link to="/auth">LogIn</router-link>
         </li>
+        <li v-if="isLoggedIn">
+          <router-link to="/auth" @click="logOut">Logout</router-link>
+        </li>
       </ul>
     </nav>
   </header>
@@ -27,6 +30,11 @@ export default {
     // console.log(this.$store.getters.isAuthenticated,'from login sigb')
     return this.$store.getters.isAuthenticated
   }
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch('logout')
+    }
   },
  
 };
