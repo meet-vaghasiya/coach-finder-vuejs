@@ -87,6 +87,10 @@ export default {
             password: this.password
           });
         }
+const redirectUrl =  '/'+( this.$route.query.redirect || 'coaches')
+
+        // this.$router.replace('/coaches')
+        this.$router.replace(redirectUrl) // we have to login button , and we want seprate redirection so we added query params in one and make dynamic redirection 
       } catch (error) {
         this.error = error || 'Failed to auth,try later';
       }

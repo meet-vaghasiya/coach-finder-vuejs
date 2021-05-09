@@ -12,7 +12,7 @@
           <!-- <button>Refresh</button>
         <router-link to="/register">Register as Coach</router-link> -->
           <base-button mode="outline" @click="loadCoaches">Refresh</base-button>
-          <base-button  link to="/auth" v-if="!isLoggedIn">Login</base-button>
+          <base-button  link to="/auth?redirect=register" v-if="!isLoggedIn">Login to register as coach</base-button>
           <base-button link to="/register" v-if="isLoggedIn && !isCoach && !isLoading"
             >Register as coach</base-button
           >
